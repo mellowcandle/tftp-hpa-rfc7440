@@ -149,16 +149,16 @@ myrecvfrom(int s, void *buf, int len, unsigned int flags,
 
     /* Try to enable getting the return address */
 #ifdef IP_RECVDSTADDR
-    if (from->sa_family == AF_INET)
+    if (from->sa_family == AF_INET || !from->sa_family)
         setsockopt(s, IPPROTO_IP, IP_RECVDSTADDR, &on, sizeof(on));
 #endif
 #ifdef IP_PKTINFO
-    if (from->sa_family == AF_INET)
+    if (from->sa_family == AF_INET || !from->sa_family)
         setsockopt(s, IPPROTO_IP, IP_PKTINFO, &on, sizeof(on));
 #endif
 #ifdef HAVE_IPV6
 #ifdef IPV6_RECVPKTINFO
-    if (from->sa_family == AF_INET6)
+    if (from->sa_family == AF_INET6 || !from->sa_family)
         setsockopt(s, IPPROTO_IPV6, IPV6_RECVPKTINFO, &on, sizeof(on));
 #endif
 #endif

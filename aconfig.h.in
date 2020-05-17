@@ -198,6 +198,9 @@
 /* Define if xmalloc function was found */
 #undef HAVE_XMALLOC
 
+/* Define if xrealloc function was found */
+#undef HAVE_XREALLOC
+
 /* Define if xstrdup function was found */
 #undef HAVE_XSTRDUP
 
